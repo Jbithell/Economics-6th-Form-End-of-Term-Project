@@ -111,7 +111,8 @@ info.update = function (props) {
             '</td></tr>' +
 
             '<tr><td><b>2015 Result</b></td><td>' +
-            generalelectiondata[props.pcon16cd].result +
+            westminsterparties[generalelectiondata[props.pcon16cd].first_party]. +
+            ' <i>(' + generalelectiondata[props.pcon16cd].result + ')</i>' +
             '</td></tr>' +
 
             '<tr><td><b>2015 Result (2<sup>nd</sup> Party)</b></td><td>' +
@@ -144,10 +145,12 @@ function getColor(d) {
 }
 */
 function getColor(party) {
-    console.log(westminsterparties);
-    console.log(party);
-    console.log(westminsterparties[party]);
-    return westminsterparties[party].colour;
+    if (colour in westminsterparties[party]) {
+        return westminsterparties[party].colour;
+    } else {
+        return null;
+    }
+
 }
 
 function style(feature) {
