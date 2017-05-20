@@ -150,7 +150,7 @@ function getColor(d) {
 }
 */
 function getColor(party) {
-    if (colour in westminsterparties[party]) {
+    if (typeof westminsterparties[party].colour !== 'undefined') {
         return westminsterparties[party].colour;
     } else {
         return null;
