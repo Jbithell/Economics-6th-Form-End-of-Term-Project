@@ -76,6 +76,8 @@ function getColor(d) {
 }
 */
 function getColor(party) {
+    console.log(westminsterparties[party]);
+    return 'black';
     return westminsterparties[party].colour;
 }
 
