@@ -103,6 +103,13 @@ $.ajax({
 
     }
 });
+$.ajax({
+    url: "data/hocl-ge2015-results-summary.json",
+    type: 'json',
+    success: function (result) {
+        console.log(result);
+    }
+});
 
 map.attributionControl.addAttribution('Constituency Boundaries data from <a href="http://geoportal.statistics.gov.uk/datasets/deeb99fdf09949bc8ed4dc95c80da279_2">ONS</a>');
 
