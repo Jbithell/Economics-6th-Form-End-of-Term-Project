@@ -3,8 +3,8 @@
  */
 
 var map = L.map('map').setView([54.003660, -2.547855], 6);
-var generalelectiondata = ""
-
+var generalelectiondata = "";
+var westminsterparties = '{      "Con":{         "colour":"#0087DC", 	  "name" : "Conservative and Unionist Party", 	  "wikidescription" : "A party loosely divided into three categories: The Thatcherites or Conservative Way Forward, who strongly support a free market and tend to be Eurosceptic; the economically moderate, often more pro-European but socially conservative One Nation Conservatives; and the socially conservative, deeply Eurosceptic Cornerstone Group."    },    "Lab":{         "colour":"#DC241F", 	  "name" : "Labour Party", 	  "wikidescription" : "A big tent party historically allied with the trade union movement; based upon mixed market Third Way policies since the party was reinvented as New Labour in 1994. As a big tent party, it includes a range of views including New Labour, Socialists such as those belonging to the Socialist Campaign Group, and Social Democrats."    },    "SNP":{         "colour":"#FFFF00", 	  "name" : "Scottish National Party", 	  "wikidescription" : "Scottish nationalist and social democratic party which supports membership of the European Union."    },    "LD":{         "colour":"#FAA61A", 	  "name" : "Liberal Democrats", 	  "wikidescription" : "Socially liberal and progressive; supports democratisation of the political system. Strongly supports membership of the European Union."    },    "DUP":{         "colour":"#D46A4C", 	  "name" : "Democratic Unionist Party", 	  "wikidescription" : "Unionist and national conservative party in Northern Ireland. Socially conservative with close links to Protestantism."    },    "UUP":{         "colour":"#9999FF", 	  "name" : "Ulster Unionist Party", 	  "wikidescription" : "Unionist party in Northern Ireland, conservative but with liberal factions."    },    "SF":{         "colour":"#008800", 	  "name" : "Sinn Féin", 	  "wikidescription" : "Irish republican party that supports the unification of the island of Ireland as a 32-county Irish republic."    },    "TUV":{         "colour":"#0095B6", 	  "name" : "Traditional Unionist Voice", 	  "wikidescription" : "Strongly social and national conservative unionist party in Northern Ireland, opposed to the St Andrews Agreement."    },    "Green":{         "colour":"#6AB023", 	  "name" : "Green Party of England and Wales", 	  "wikidescription" : "Green political party that favours eco-socialism, environmentalism, sustainability and non-violence."    },    "PC":{         "colour":"#008142", 	  "name" : "Plaid Cymru - Party of Wales", 	  "wikidescription" : "Left-wing party in favour of Welsh independence."    },    "UKIP":{         "colour":"#70147A", 	  "name" : "UK Independence Party", 	  "wikidescription" : "Eurosceptic and right-wing populist party. Favours national sovereignty, direct democracy, social conservatism and economic liberalism."    },    "Spk":{         "colour":"white", 	  "name" : "Speaker of the House of Commons", 	  "wikidescription" : ""    },    "Ind":{         "colour":"white", 	  "name" : "Independent", 	  "wikidescription" : ""    } }'; //If updating this use https://gist.github.com/Jbithell/425b4515954b184cfe0a5a2f3183c7a6
 //var searchLayer = L.layerGroup().addTo(map);
 //map.addControl( new L.Control.Search({layer: searchLayer}) );
 
@@ -47,7 +47,7 @@ info.update = function (props) {
             '</td></tr>' +
 
             '<tr><td><b>2015 Result (2<sup>nd</sup> Party)</b></td><td>' +
-            generalelectiondata[props.pcon16cd].second_party +
+            westminsterparties[generalelectiondata[props.pcon16cd].second_party].name +
             '</td></tr>' +
 
             '<tr><td><b>2015 Voters</b></td><td>' +
@@ -57,7 +57,7 @@ info.update = function (props) {
 
             '</table>'
 
-            : '<i>Hover over a constituency for more info</i>');
+            : '<i>Hover over a constituency</i>');
 };
 
 info.addTo(map);
@@ -76,20 +76,7 @@ function getColor(d) {
 }
 */
 function getColor(party) {
-    return party == "Con" ? '#0087DC' :
-            party == "Lab" ? '#DC241F' :
-            party == "SNP" ? '#FFFF00' :
-            party == "LD" ? '#FAA61A' :
-            party == "DUP" ? '#D46A4C' :
-            party == "UUP" ? '#9999FF' :
-            party == "SF" ? '#008800' :
-            party == "TUV" ? '#0095B6' :
-            party == "Green"  ? '#6AB023' :
-            party == "PC"  ? '#008142' :
-            party == "UKIP"  ? '#70147A' :
-            party == "Spk"  ? 'white' : //Speaker
-            party == "Ind" ? 'white' : //Independent
-                ''; //ERROR
+    return westminsterparties[party].colour;
 }
 
 function style(feature) {
