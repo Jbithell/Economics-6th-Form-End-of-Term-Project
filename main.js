@@ -26,8 +26,10 @@ info.onAdd = function (map) {
 };
 
 info.update = function (props) {
+
     this._div.innerHTML = '<h4>UK</h4>' + (props ?
-            '<b>' + props.pcon16nm + '</b>'
+            '<b>' + props.pcon16nm + '</b>' + '<br/>' + '<table border="1"><tr><td>2015 Result</td><td>' + generalelectiondata[props.pcon16cd].result + '</td></tr></table>'
+
             : 'Hover over a constituency for more info');
 };
 
@@ -46,7 +48,6 @@ function getColor(d) {
 }
 */
 function getColor(party) {
-    console.log(party);
     return party == "Con" ? '#0087DC' :
             party == "Lab" ? '#DC241F' :
             party == "SNP" ? '#FFFF00' :
@@ -60,17 +61,16 @@ function getColor(party) {
             party == "UKIP"  ? '#70147A' :
             party == "Spk"  ? 'white' : //Speaker
             party == "Ind" ? 'white' : //Independent
-                'black'; //ERROR
+                ''; //ERROR
 }
 
 function style(feature) {
-    console.log(generalelectiondata[feature.properties.pcon16cd].first_party);
     return {
         weight: 1,
         opacity: 1,
         color: 'white',
         dashArray: '3',
-        fillOpacity: 0.5,
+        fillOpacity: 0.7,
         fillColor: getColor(generalelectiondata[feature.properties.pcon16cd].first_party)
     };
 }
