@@ -37,6 +37,7 @@ info.addTo(map);
 
 /*
 function getColor(d) {
+    //For heatmaps
     return d > 1000 ? '#800026' :
         d > 500 ? '#BD0026' :
             d > 200 ? '#E31A1C' :
@@ -135,6 +136,7 @@ $.ajax({
 
 
 map.attributionControl.addAttribution('Constituency Boundaries data from <a href="http://geoportal.statistics.gov.uk/datasets/deeb99fdf09949bc8ed4dc95c80da279_2">ONS</a>');
+map.attributionControl.addAttribution('2015 Election result data from <a href="http://www.data.parliament.uk/dataset/general-election-2015">UK Parliament</a>');
 
 var legend = L.control({position: 'bottomright'});
 
