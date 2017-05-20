@@ -53,11 +53,11 @@ info.update = function (props) {
             '<tr><td><b>2015 Voters</b></td><td>' +
             generalelectiondata[props.pcon16cd].lectorate +
             '</td></tr>' +
-            e
+            
 
             '</table>'
 
-            : 'Hover over a constituency for more info');
+            : '<i>Hover over a constituency for more info</i>');
 };
 
 info.addTo(map);
