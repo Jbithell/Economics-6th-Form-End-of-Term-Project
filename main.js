@@ -51,9 +51,9 @@ info.update = function (props) {
             '</td></tr>' +
 
             '<tr><td><b>2015 Voters</b></td><td>' +
-            generalelectiondata[props.pcon16cd].lectorate +
+            generalelectiondata[props.pcon16cd].electorate +
             '</td></tr>' +
-            
+
 
             '</table>'
 
