@@ -27,8 +27,35 @@ info.onAdd = function (map) {
 
 info.update = function (props) {
 
-    this._div.innerHTML = '<h4>UK</h4>' + (props ?
-            '<b>' + props.pcon16nm + '</b>' + '<br/>' + '<table border="1"><tr><td>2015 Result</td><td>' + generalelectiondata[props.pcon16cd].result + '</td></tr></table>'
+    this._div.innerHTML = (props ?
+            '<table border="0">' +
+
+
+            '<tr><td><b>Name</b></td><td>' +
+            props.pcon16nm +
+            '</td></tr>' +
+
+            '<tr><td><b>County</b></td><td>' +
+            generalelectiondata[props.pcon16cd].county_name +
+                ' <i>(' +
+            generalelectiondata[props.pcon16cd].country_name +
+                ')</i>' +
+            '</td></tr>' +
+
+            '<tr><td><b>2015 Result</b></td><td>' +
+            generalelectiondata[props.pcon16cd].result +
+            '</td></tr>' +
+
+            '<tr><td><b>2015 Result (2<sup>nd</sup> Party)</b></td><td>' +
+            generalelectiondata[props.pcon16cd].second_party +
+            '</td></tr>' +
+
+            '<tr><td><b>2015 Voters</b></td><td>' +
+            generalelectiondata[props.pcon16cd].lectorate +
+            '</td></tr>' +
+            e
+
+            '</table>'
 
             : 'Hover over a constituency for more info');
 };
