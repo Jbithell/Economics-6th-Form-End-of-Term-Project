@@ -75,6 +75,11 @@ var westminsterparties = ({
 
 //var searchLayer = L.layerGroup().addTo(map);
 //map.addControl( new L.Control.Search({layer: searchLayer}) );
+var loadingdialog = bootbox.dialog({
+    message: '<p class="text-center"><i>Please wait while we load data...</i><br/><br/><i class="fa fa-spin fa-spinner fa-5x"></i></p>',
+    closeButton: false
+});
+
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiamJpdGhlbGwiLCJhIjoiY2oybHFuams0MDAweTMzcW50dG4waWM2eSJ9.RIlIWoMrOa145kyaaMtt0w', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -214,6 +219,8 @@ $.ajax({
                     style: style,
                     onEachFeature: onEachFeature
                 }).addTo(map);
+
+                loadingdialog.modal('hide');
 
             }
         });
