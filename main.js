@@ -104,7 +104,7 @@ $.ajax({
     }
 });
 $.ajax({
-    url: "data/hocl-ge2015-results-summary.json",
+    url: "data/hocl-ge2015-results-summary.php",
     type: 'json',
     success: function (result) {
         console.log(result);
