@@ -3,7 +3,7 @@
  */
 
 var map = L.map('map').setView([54.003660, -2.547855], 6);
-
+var generalelectiondata = ""
 
 //var searchLayer = L.layerGroup().addTo(map);
 //map.addControl( new L.Control.Search({layer: searchLayer}) );
@@ -33,6 +33,7 @@ info.update = function (props) {
 
 info.addTo(map);
 
+/*
 function getColor(d) {
     return d > 1000 ? '#800026' :
         d > 500 ? '#BD0026' :
@@ -43,15 +44,28 @@ function getColor(d) {
                             d > 10 ? '#FED976' :
                                 '#FFEDA0';
 }
+*/
+function getColor(party) {
+    console.log(party);
+    return party > 1000 ? '#800026' :
+        party > 500 ? '#Bparty0026' :
+            party > 200 ? '#E31A1C' :
+                party > 100 ? '#FC4E2A' :
+                    party > 50 ? '#Fparty8party3C' :
+                        party > 20 ? '#FEB24C' :
+                            party > 10 ? '#FEparty976' :
+                                '#FFEpartyA0';
+}
 
 function style(feature) {
+    console.log(generalelectiondata[feature.properties.pcon16cd].first_party);
     return {
-        weight: 2,
+        weight: 1,
         opacity: 1,
         color: 'white',
         dashArray: '3',
-        fillOpacity: 0.7,
-        fillColor: getColor(feature.properties.density)
+        fillOpacity: 0.5,
+        fillColor: getColor(generalelectiondata[feature.properties.pcon16cd].first_party)
     };
 }
 
@@ -93,23 +107,26 @@ function onEachFeature(feature, layer) {
 
 //$.ajax({url: "data/Westminster_Parliamentary_Constituencies_December_2016_Full_Extent_Boundaries_in_Great_Britain.geojson", success: function(result){
 $.ajax({
-    url: "data/Westminster_Parliamentary_Constituencies_December_2016_Generalised_Clipped_Boundaries_in_Great_Britain.php",
-    type: 'json',
-    success: function (result) {
-        geojson = L.geoJson(result, {
-            style: style,
-            onEachFeature: onEachFeature
-        }).addTo(map);
-
-    }
-});
-$.ajax({
     url: "data/hocl-ge2015-results-summary.php",
     type: 'json',
     success: function (result) {
-        console.log(result);
+        generalelectiondata = result;
+        $.ajax({
+            url: "data/Westminster_Parliamentary_Constituencies_December_2016_Generalised_Clipped_Boundaries_in_Great_Britain.php",
+            type: 'json',
+            success: function (result) {
+                geojson = L.geoJson(result, {
+                    style: style,
+                    onEachFeature: onEachFeature
+                }).addTo(map);
+
+            }
+        });
     }
+    
 });
+
+
 
 map.attributionControl.addAttribution('Constituency Boundaries data from <a href="http://geoportal.statistics.gov.uk/datasets/deeb99fdf09949bc8ed4dc95c80da279_2">ONS</a>');
 
