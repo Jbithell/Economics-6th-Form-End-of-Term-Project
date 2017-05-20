@@ -116,7 +116,7 @@ info.update = function (props) {
             '</td></tr>' +
 
             '<tr><td><b>2015 Result</b></td><td>' +
-            westminsterparties[generalelectiondata[props.pcon16cd].first_party] +
+            westminsterparties[generalelectiondata[props.pcon16cd].first_party].name +
             ' <i>(' + generalelectiondata[props.pcon16cd].result + ')</i>' +
             '</td></tr>' +
 
