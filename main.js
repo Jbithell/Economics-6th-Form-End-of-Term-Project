@@ -47,14 +47,20 @@ function getColor(d) {
 */
 function getColor(party) {
     console.log(party);
-    return party > 1000 ? '#800026' :
-        party > 500 ? '#Bparty0026' :
-            party > 200 ? '#E31A1C' :
-                party > 100 ? '#FC4E2A' :
-                    party > 50 ? '#Fparty8party3C' :
-                        party > 20 ? '#FEB24C' :
-                            party > 10 ? '#FEparty976' :
-                                '#FFEpartyA0';
+    return party == "Con" ? '#0087DC' :
+            party == "Lab" ? '#DC241F' :
+            party == "SNP" ? '#FFFF00' :
+            party == "LD" ? '#FAA61A' :
+            party == "DUP" ? '#D46A4C' :
+            party == "UUP" ? '#9999FF' :
+            party == "SF" ? '#008800' :
+            party == "TUV" ? '#0095B6' :
+            party == "Green"  ? '#6AB023' :
+            party == "PC"  ? '#008142' :
+            party == "UKIP"  ? '#70147A' :
+            party == "Spk"  ? 'white' : //Speaker
+            party == "Ind" ? 'white' : //Independent
+                'black'; //ERROR
 }
 
 function style(feature) {
