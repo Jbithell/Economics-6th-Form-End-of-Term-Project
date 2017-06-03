@@ -179,16 +179,19 @@ function style(feature) {
     };
 }
 function crimeStyle(feature) {
-    console.log(crimedata);
-    console.log(feature.properties);
-    return {
-        weight: 1,
-        opacity: 1,
-        color: '',
-        dashArray: '3',
-        fillOpacity: 0.6,
-        fillColor: getCrimeColor(crimedata[feature.properties.pcon16cd].total)
-    };
+    if (feature.properties.pcon16cd in crimedata) {
+        return {
+            weight: 1,
+            opacity: 1,
+            color: '',
+            dashArray: '3',
+            fillOpacity: 0.6,
+            fillColor: getCrimeColor(crimedata[feature.properties.pcon16cd].total)
+        };
+    } else {
+        return null;
+    }
+
 }
 
 
