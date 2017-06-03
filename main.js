@@ -128,6 +128,12 @@ info.update = function (props) {
             generalelectiondata[props.pcon16cd].electorate +
             '</td></tr>' +
 
+            '<tr><td><b>2016 EU Remain/Leave</b></td><td>' +
+            eurefresults[props.pcon16cd].remain + '%/' + eurefresults[props.pcon16cd].leave + '%' +
+            '</td></tr>' +
+
+
+
 
             '</table>'
 
