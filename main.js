@@ -228,11 +228,26 @@ $.ajax({
     
 });
 
+//Add settings icon to map
+var settings = ""; //Init the var
+L.easyButton( 'fa-cog', function(){
+    settings = bootbox.dialog({
+        title: 'Settings',
+        message: '<input type="checkbox" name="2015result" value="2015 Results &amp; Constituency Data">' +
+        '<input type="checkbox" name="eu-ref" value="2016 EU Referendum Results">'
+    });
+}).addTo(map);
 
 //Add settings icon to map
-L.easyButton( 'fa-star', function(){
-    alert('you just clicked a font awesome icon');
+var about = ""; //Init the var
+L.easyButton( 'fa-info', function(){
+    about = bootbox.dialog({
+        title: 'About',
+        message: '<p>Developed by James Bithell in the run up to the 2017 United Kingdom General Election</p>',
+        footer: "<a href="https://github.com/Jbithell/Economics-6th-Form-End-of-Term-Project" class="btn">Source Code on Github</a>'
+    });
 }).addTo(map);
+
 
 
 map.attributionControl.addAttribution('Constituency Boundaries data from <a href="http://geoportal.statistics.gov.uk/datasets/deeb99fdf09949bc8ed4dc95c80da279_2">ONS</a>');
