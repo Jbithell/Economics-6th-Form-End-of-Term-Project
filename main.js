@@ -244,7 +244,7 @@ L.easyButton( 'fa-info', function(){
     about = bootbox.dialog({
         title: 'About',
         message: '<p>Developed by James Bithell in the run up to the 2017 United Kingdom General Election</p>',
-        footer: "<a href="https://github.com/Jbithell/Economics-6th-Form-End-of-Term-Project" class="btn">Source Code on Github</a>'
+        footer: '<a href="https://github.com/Jbithell/Economics-6th-Form-End-of-Term-Project" class="btn">Source Code on Github</a>'
     });
 }).addTo(map);
 
