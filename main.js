@@ -152,11 +152,11 @@ function getCrimeColor(d) {
     //For crime heatmap
     return d > 50000 ? '#800026' :
         d > 40000 ? '#BD0026' :
-            d > 30000 ? '#E31A1C' :
-                d > 20000 ? '#FC4E2A' :
-                    d > 10000 ? '#FD8D3C' :
-                        d > 1000 ? '#FEB24C' :
-                                '#75fe68';
+            d > 30000 ? '#e31a1c' :
+                d > 20000 ? '#fcb15d' :
+                    d > 10000 ? '#effd6c' :
+                        d > 1000 ? '#27fe32' :
+                                '';
 }
 
 function getColor(party) {
