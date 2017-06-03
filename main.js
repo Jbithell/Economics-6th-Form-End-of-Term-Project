@@ -169,7 +169,6 @@ function getColor(party) {
 }
 
 function style(feature) {
-    return null;
     return {
         weight: 1,
         opacity: 1,
@@ -180,12 +179,12 @@ function style(feature) {
     };
 }
 function crimeStyle(feature) {
-    if (feature.properties.pcon16cd in crimedata) {
+    if (feature.properties.pcon16cd in crimedata && false) {
         return {
             color: 'black',
             weight: 1,
             dashArray: '1',
-            fillOpacity: 0.9,
+            fillOpacity: 0.7,
             fillColor: getCrimeColor(crimedata[feature.properties.pcon16cd].total)
         };
     } else {
