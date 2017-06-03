@@ -146,19 +146,18 @@ info.update = function (props) {
 
 info.addTo(map);
 
-/*
-function getColor(d) {
-    //For heatmaps
-    return d > 1000 ? '#800026' :
-        d > 500 ? '#BD0026' :
-            d > 200 ? '#E31A1C' :
-                d > 100 ? '#FC4E2A' :
-                    d > 50 ? '#FD8D3C' :
-                        d > 20 ? '#FEB24C' :
-                            d > 10 ? '#FED976' :
-                                '#FFEDA0';
+
+function getCrimeColor(d) {
+    //For crime heatmap
+    return d > 50000 ? '#800026' :
+        d > 40000 ? '#BD0026' :
+            d > 30000 ? '#E31A1C' :
+                d > 20000 ? '#FC4E2A' :
+                    d > 10000 ? '#FD8D3C' :
+                        d > 1000 ? '#FEB24C' :
+                                '#75fe68';
 }
-*/
+
 function getColor(party) {
     if (typeof westminsterparties[party].colour !== 'undefined') {
         return westminsterparties[party].colour;
@@ -173,11 +172,22 @@ function style(feature) {
         weight: 1,
         opacity: 1,
         color: 'white',
-        dashArray: '3',
+        dashArray: '15',
         fillOpacity: 0.7,
         fillColor: getColor(generalelectiondata[feature.properties.pcon16cd].first_party)
     };
 }
+function crimeStyle(feature) {
+    return {
+        weight: 1,
+        opacity: 1,
+        color: '',
+        dashArray: '3',
+        fillOpacity: 0.6,
+        fillColor: getCrimeColor(crimedata[feature.properties.pcon16cd].total)
+    };
+}
+
 
 function highlightFeature(e) {
     var layer = e.target;
@@ -244,10 +254,23 @@ $.ajax({
                             type: 'json',
                             success: function (result) {
                                 twentytenresults = result;
-                                loadingdialog.modal('hide');
+                                //NEXT AJAX REQUEST
+                                $.ajax({
+                                    url: "data/crime.php",
+                                    type: 'json',
+                                    success: function (result) {
+                                        geojson = L.geoJson(result, {
+                                            style: crimeStyle
+                                        }).addTo(map);
+                                        loadingdialog.modal('hide');
+                                    }
+                                });
+                                //END NEXT AJAX REQUEST
                             }
                         });
                         //END NEXT AJAX REQUEST
+
+
 
                     }
                 });
