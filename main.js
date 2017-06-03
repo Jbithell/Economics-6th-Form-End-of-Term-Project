@@ -174,18 +174,18 @@ function style(feature) {
         opacity: 1,
         color: 'white',
         dashArray: '3',
-        fillOpacity: 0,
+        fillOpacity: 0.9,
         fillColor: getColor(generalelectiondata[feature.properties.pcon16cd].first_party)
     };
 }
 function crimeStyle(feature) {
     if (feature.properties.pcon16cd in crimedata) {
         return {
-            weight: 1,
+            weight: 2,
             opacity: 1,
             color: '',
             dashArray: '3',
-            fillOpacity: 1,
+            fillOpacity: 0.6,
             fillColor: getCrimeColor(crimedata[feature.properties.pcon16cd].total)
         };
     } else {
