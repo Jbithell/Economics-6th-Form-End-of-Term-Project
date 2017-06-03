@@ -3,7 +3,8 @@
  */
 
 var map = L.map('map').setView([54.003660, -2.547855], 6);
-var generalelectiondata = "";
+var generalelectiondata;
+var crimedata;
 var westminsterparties = ({
     "Con":{
         "colour":"#0087DC",
@@ -178,6 +179,7 @@ function style(feature) {
     };
 }
 function crimeStyle(feature) {
+    console.log(crimedata);
     return {
         weight: 1,
         opacity: 1,
@@ -224,7 +226,7 @@ function onEachFeature(feature, layer) {
         //click: zoomToFeature
     });
 }
-var crimedata = "";
+
 //$.ajax({url: "data/Westminster_Parliamentary_Constituencies_December_2016_Full_Extent_Boundaries_in_Great_Britain.geojson", success: function(result){
 $.ajax({
     url: "data/hocl-ge2015-results-summary.php",
