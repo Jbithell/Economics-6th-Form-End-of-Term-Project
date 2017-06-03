@@ -180,6 +180,7 @@ function style(feature) {
 }
 function crimeStyle(feature) {
     console.log(crimedata);
+    console.log(feature.properties);
     return {
         weight: 1,
         opacity: 1,
