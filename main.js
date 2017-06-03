@@ -224,7 +224,7 @@ function onEachFeature(feature, layer) {
         //click: zoomToFeature
     });
 }
-
+var crimedata = "";
 //$.ajax({url: "data/Westminster_Parliamentary_Constituencies_December_2016_Full_Extent_Boundaries_in_Great_Britain.geojson", success: function(result){
 $.ajax({
     url: "data/hocl-ge2015-results-summary.php",
@@ -236,6 +236,7 @@ $.ajax({
             url: "data/Westminster_Parliamentary_Constituencies_December_2016_Generalised_Clipped_Boundaries_in_Great_Britain.php",
             type: 'json',
             success: function (result) {
+                seatdata = result;
                 geojson = L.geoJson(result, {
                     style: style,
                     onEachFeature: onEachFeature
@@ -259,7 +260,8 @@ $.ajax({
                                     url: "data/crime.php",
                                     type: 'json',
                                     success: function (result) {
-                                        geojson = L.geoJson(result, {
+                                        crimedata = result;
+                                        geojson = L.geoJson(seatdata, {
                                             style: crimeStyle
                                         }).addTo(map);
                                         loadingdialog.modal('hide');
