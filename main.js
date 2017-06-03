@@ -179,13 +179,13 @@ function style(feature) {
     };
 }
 function crimeStyle(feature) {
-    if (feature.properties.pcon16cd in crimedata) {
+    if (feature.properties.pcon16cd in crimedata && false) {
         return {
             weight: 1,
             opacity: 1,
             color: '',
             dashArray: '3',
-            fillOpacity: 0.6,
+            fillOpacity: 1,
             fillColor: getCrimeColor(crimedata[feature.properties.pcon16cd].total)
         };
     } else {
