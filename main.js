@@ -132,6 +132,10 @@ info.update = function (props) {
             eurefresults[props.pcon16cd].remain + '%/' + eurefresults[props.pcon16cd].leave + '%' +
             '</td></tr>' +
 
+            '<tr><td><b>2010 Result</b></td><td>' +
+            westminsterparties[twentytenresults[props.pcon16cd].result].name +
+            '</td></tr>' +
+
 
 
 
@@ -233,7 +237,18 @@ $.ajax({
                     type: 'json',
                     success: function (result) {
                         eurefresults = result;
-                        loadingdialog.modal('hide');
+
+                        //NEXT AJAX REQUEST
+                        $.ajax({
+                            url: "data/hocl-ge2010-results.php",
+                            type: 'json',
+                            success: function (result) {
+                                twentytenresults = result;
+                                loadingdialog.modal('hide');
+                            }
+                        });
+                        //END NEXT AJAX REQUEST
+
                     }
                 });
                 //END NEXT AJAX REQUEST
