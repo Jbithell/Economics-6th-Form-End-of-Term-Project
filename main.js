@@ -174,12 +174,12 @@ function style(feature) {
         opacity: 1,
         color: 'white',
         dashArray: '3',
-        fillOpacity: 0.9,
+        fillOpacity: 0.7,
         fillColor: getColor(generalelectiondata[feature.properties.pcon16cd].first_party)
     };
 }
 function crimeStyle(feature) {
-    if (feature.properties.pcon16cd in crimedata && false) {
+    if (feature.properties.pcon16cd in crimedata) {
         return {
             color: 'black',
             weight: 1,
@@ -266,9 +266,9 @@ $.ajax({
                                     type: 'json',
                                     success: function (result) {
                                         crimedata = result;
-                                        geojson = L.geoJson(seatdata, {
-                                            style: crimeStyle
-                                        }).addTo(map);
+                                        //geojson = L.geoJson(seatdata, {
+                                        //    style: crimeStyle
+                                        //}).addTo(map);
                                         loadingdialog.modal('hide');
                                     }
                                 });
