@@ -76,7 +76,7 @@ var westminsterparties = ({
 //var searchLayer = L.layerGroup().addTo(map);
 //map.addControl( new L.Control.Search({layer: searchLayer}) );
 var loadingdialog = bootbox.dialog({
-    message: '<p class="text-center"><i>Please wait while we load data...</i><br/><br/><i class="fa fa-spin fa-spinner fa-5x"></i></p>',
+    message: '<p class="text-center"><br/><br/><i class="fa fa-spin fa-spinner fa-5x"></i><br/><br/><b>When loaded, this system allows you to select from data-sets to overlay them onto the map of the United Kingdom.</b><br/>Use the Settings icon in the top left to select what you see. </p>',
     closeButton: false
 });
 
@@ -201,7 +201,7 @@ function onEachFeature(feature, layer) {
     layer.on({
         mouseover: highlightFeature,
         mouseout: resetHighlight,
-        click: zoomToFeature
+        //click: zoomToFeature
     });
 }
 
@@ -229,12 +229,18 @@ $.ajax({
 });
 
 
+//Add settings icon to map
+L.easyButton( 'fa-star', function(){
+    alert('you just clicked a font awesome icon');
+}).addTo(map);
+
 
 map.attributionControl.addAttribution('Constituency Boundaries data from <a href="http://geoportal.statistics.gov.uk/datasets/deeb99fdf09949bc8ed4dc95c80da279_2">ONS</a>');
 map.attributionControl.addAttribution('2015 Election result data from <a href="http://www.data.parliament.uk/dataset/general-election-2015">UK Parliament</a>');
+map.attributionControl.addAttribution('Website &copy; <a href="//jbithell.com">James Bithell</a>');
+
 
 var legend = L.control({position: 'bottomright'});
-
 legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
@@ -254,8 +260,5 @@ legend.onAdd = function (map) {
     div.innerHTML = labels.join('<br>');
     return div;
 };
-
 legend.addTo(map);
 
-
-map.attributionControl.addAttribution('Website &copy; <a href="//jbithell.com">James Bithell</a>');
