@@ -169,6 +169,7 @@ function getColor(party) {
 }
 
 function style(feature) {
+    return null;
     return {
         weight: 1,
         opacity: 1,
@@ -181,10 +182,6 @@ function style(feature) {
 function crimeStyle(feature) {
     if (feature.properties.pcon16cd in crimedata) {
         return {
-            weight: 2,
-            opacity: 1,
-            color: '',
-            dashArray: '3',
             fillOpacity: 0.6,
             fillColor: getCrimeColor(crimedata[feature.properties.pcon16cd].total)
         };
