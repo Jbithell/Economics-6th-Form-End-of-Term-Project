@@ -211,6 +211,7 @@ $.ajax({
     type: 'json',
     success: function (result) {
         generalelectiondata = result;
+        //NEXT AJAX REQUEST
         $.ajax({
             url: "data/Westminster_Parliamentary_Constituencies_December_2016_Generalised_Clipped_Boundaries_in_Great_Britain.php",
             type: 'json',
@@ -220,12 +221,22 @@ $.ajax({
                     onEachFeature: onEachFeature
                 }).addTo(map);
 
-                loadingdialog.modal('hide');
+                //NEXT AJAX REQUEST
+                $.ajax({
+                    url: "data/eu_ref_results.php",
+                    type: 'json',
+                    success: function (result) {
+                        eurefresults = result;
+                        loadingdialog.modal('hide');
+                    }
+                });
+                //END NEXT AJAX REQUEST
 
             }
-        });
+        })
+        //END NEXT AJAX REQUEST
     }
-    
+
 });
 
 //Add settings icon to map
