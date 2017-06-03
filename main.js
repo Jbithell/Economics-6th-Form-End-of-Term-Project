@@ -99,7 +99,6 @@ info.onAdd = function (map) {
 };
 
 info.update = function (props) {
-    console.log(twentytenresults[props.pcon16cd].result);
     this._div.innerHTML = (props ?
             '<table border="0">' +
 
