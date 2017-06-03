@@ -291,6 +291,7 @@ $.ajax({
 });
 
 //Add settings icon to map
+/*
 var settings = ""; //Init the var
 L.easyButton( 'fa-cog', function(){
     settings = bootbox.dialog({
@@ -299,7 +300,7 @@ L.easyButton( 'fa-cog', function(){
         '<input type="checkbox" name="eu-ref" value="2016 EU Referendum Results">'
     });
 }).addTo(map);
-
+*/
 //Add settings icon to map
 var about = ""; //Init the var
 L.easyButton( 'fa-info', function(){
