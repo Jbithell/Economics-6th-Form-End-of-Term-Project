@@ -133,7 +133,7 @@ info.update = function (props) {
             '</td></tr>' +
 
             '<tr><td><b>2010 Result</b></td><td>' +
-            westminsterparties[twentytenresults[props.pcon16cd].result].name +
+            (westminsterparties[twentytenresults[props.pcon16cd].result].name != undefined ? westminsterparties[twentytenresults[props.pcon16cd].result].name : twentytenresults[props.pcon16cd].result) +
             '</td></tr>' +
 
 
