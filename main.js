@@ -156,7 +156,7 @@ function getCrimeColor(d) {
                 d > 20000 ? '#fcb15d' :
                     d > 10000 ? '#effd6c' :
                         d > 1000 ? '#27fe32' :
-                                '';
+                                'white';
 }
 
 function getColor(party) {
@@ -182,11 +182,10 @@ function style(feature) {
 function crimeStyle(feature) {
     if (feature.properties.pcon16cd in crimedata) {
         return {
-            opacity: 0,
-            color: 'white',
+            color: 'black',
             weight: 1,
-            dashArray: '0',
-            fillOpacity: 0.6,
+            dashArray: '1',
+            fillOpacity: 0.9,
             fillColor: getCrimeColor(crimedata[feature.properties.pcon16cd].total)
         };
     } else {
