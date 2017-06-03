@@ -173,13 +173,13 @@ function style(feature) {
         weight: 1,
         opacity: 1,
         color: 'white',
-        dashArray: '15',
-        fillOpacity: 0.7,
+        dashArray: '3',
+        fillOpacity: 0,
         fillColor: getColor(generalelectiondata[feature.properties.pcon16cd].first_party)
     };
 }
 function crimeStyle(feature) {
-    if (feature.properties.pcon16cd in crimedata && false) {
+    if (feature.properties.pcon16cd in crimedata) {
         return {
             weight: 1,
             opacity: 1,
