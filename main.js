@@ -77,7 +77,7 @@ var westminsterparties = ({
 //var searchLayer = L.layerGroup().addTo(map);
 //map.addControl( new L.Control.Search({layer: searchLayer}) );
 var loadingdialog = bootbox.dialog({
-    message: '<p class="text-center"><br/><br/><i class="fa fa-spin fa-spinner fa-5x"></i><br/><br/><b>When loaded, this system allows you to select from data-sets to overlay them onto the map of the United Kingdom.</b><br/>Use the Settings icon in the top left to select what you see. </p>',
+    message: '<p class="text-center"><br/><br/><i class="fa fa-spin fa-spinner fa-5x"></i><br/><br/><b>When loaded, this system displays the results of the 2015 general election onto a map of the United Kingdom.</b></p>',
     closeButton: false
 });
 
